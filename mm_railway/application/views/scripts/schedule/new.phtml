@@ -1,0 +1,57 @@
+<table class="table">
+	<form method="post">
+		<tr>
+			<td>
+				<label name="destinationCity">Destination City</label>	
+			</td>
+			<td>
+				<input type="text" name="destinationCity" class="form-control" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label name="date">Date</label>	
+			</td>
+			<td>
+				<input type="date" name="date" class="form-control" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label name="time">Time</label>	
+			</td>
+			<td>
+				<input type="time" name="time" class="form-control" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label name="trainNumber">Price</label>	
+			</td>
+			<td>
+				<input type="number" name="price" class="form-control" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label name="trainId">Train</label>
+			</td>
+			<td>
+				<select name="trainId" class="form-control">
+					<?php
+						foreach ($this->trainList as $train) {
+							echo "<option value='".$train['train_id']."'>".$train['train_number']."</option>";
+						}
+					?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				<input type="submit" class="btn btn-primary" value="save" />
+			</td>
+		</tr>
+	</form>
+</table>

@@ -1,0 +1,49 @@
+<?php if (!empty($this->errors)): ?>
+    <div id="dialog" title="Form Error ">
+        <ul>
+            <?php foreach ($this->errors as $msg): ?>
+                <ul><?= $msg ?></ul>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+
+<form method="post">
+<table>
+	<tr>
+		<td>
+			<input type="text" name="txtname" placeholder="Name" class="form-control" />
+		</td>
+	</tr>	
+	<tr>	
+		<td>
+			<input type="text" name="txtphone" placeholder="Phone" class="form-control" />
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<input type="email" name="txtemail" placeholder="Email" class="form-control" />
+		</td>
+	</tr>	
+	<tr>	
+		<td>
+			<input type="password" name="password" placeholder="Password" class="form-control" />
+		</td>
+	</tr>	
+	<tr>		
+		<td>
+			<input type="password" name="reenterpassword" placeholder="Re-Enter Password" class="form-control" />
+		</td>
+	</tr>	
+	<tr>		
+		<td>
+			<textarea name="address" rows="5" placeholder="Address" class="form-control"></textarea>
+		</td>
+	</tr>
+	<tr>	 
+		<td>
+			<input type="submit" name="btnregister" value="Register" class="btn btn-default" />
+		</td>
+	</tr>
+</table>
+</form>

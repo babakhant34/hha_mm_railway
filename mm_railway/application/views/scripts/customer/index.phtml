@@ -1,0 +1,35 @@
+<? $URL="/hha_l5_project/mm_railway/public/customer/"; ?>
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Email</th>
+		<th>Address</th>
+		<form method = post>
+		<th colspan="2"><input type='text'placeholder="Search by Email" name="txtSearch" style="background: skyblue;">
+		<input type='submit' name="btnSearch" value="Search" class="btn green-btn">
+		<a href="<? $URL ; ?>"><input type='button' value="All" class="btn blue-btn"></a>
+		<a href="<? $URL ; ?>new"><input type='button' value="Register" class="btn red-btn"></a></th>
+		</form>
+	</tr>
+<? if ($this->noresult) : ?>
+<tr>
+	<td colspan="7">
+		<? echo $this->noresult ; ?>
+	</td>
+</tr>
+<? else : ?>
+<? foreach ($this->indexcustomer as $index) : ?>
+		<tr>
+			<td><?= $index['customer_id'] ; ?></td>
+			<td><?= $index['name'] ; ?></td>
+			<td><?= $index['phone'] ; ?></td>
+			<td><?= $index['email'] ; ?></td>
+			<td><?= $index['address'] ; ?></td>
+			<td><a href="<?= $URL; ?>edit/customer_id/<?= $index['customer_id']?>"><input type='button' value="Edit" class="btn blue-btn" /></td>
+			<td><a href="<?= $URL; ?>delete/customer_id/<?= $index['customer_id']?>"><input type='button' value="Delete" class="btn btn-danger" /></td>
+		</tr>
+<? endforeach ; ?>
+<? endif ; ?>
+</table>

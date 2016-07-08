@@ -1,0 +1,53 @@
+<?php
+	$edit = array();
+	foreach ($this->editcustomer as $edit[]) { 
+	}
+	$customer_id = $edit[0];
+	$name = $edit[1];
+	$phone = $edit[2];
+	$email = $edit[3];
+	$address = $edit[5];
+?>
+
+<form method="post">
+<table>
+	<tr>
+		<td>
+			<input type="hidden" name="txtid" placeholder="Name" class="form-control" value="<? echo $customer_id ;?>"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="text" name="txtname" placeholder="Name" class="form-control" value="<? echo $name ;?>"/>
+		</td>
+	</tr>	
+	<tr>	
+		<td>
+			<input type="text" name="txtphone" placeholder="Phone" class="form-control" value="<? echo $phone ;?>" />
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<input type="text" name="txtemail" class="form-control" value="<? echo $email ;?>" readonly="true" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="email" name="txteditemail" value="<? echo $email ;?>" placeholder="Email for Editing" class="form-control" />
+			<? if ($this->error) : echo $this->error ;?><? endif ;?>
+		</td>
+	</tr>		
+	<tr>		
+		<td>
+			<textarea name="address" rows="5" placeholder="Address" class="form-control"><? echo $address ;?></textarea>
+		</td>
+	</tr>
+	<tr>	 
+		<td>
+			<input type="submit" name="btnedit" value="Edit" class="btn green-btn" />
+		</form>
+			<a href="/hha_l5_project/mm_railway/public/customer/delete/customer_id/<? echo $customer_id ;?>">
+				<input type="button" value="Delete" class="btn red-btn" /></a>
+		</td>
+	</tr>
+</table>

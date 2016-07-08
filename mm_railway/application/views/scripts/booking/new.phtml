@@ -1,0 +1,52 @@
+<?php
+	
+?>
+<table class="table">
+	<form method="post">
+	<tr>
+		<td>
+			<label>Name</label>
+		</td>
+		<td>
+			<input type="text" name="cusName" value="<?php echo $this->cusName; ?>" class="form-control" disabled="true"/>
+			<input type="hidden" value="<?php echo $this->scheduleId; ?>" name="scheduleId" />
+			<input type="hidden" value="<?php echo $this->cusId; ?>" name="cusId" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>Phone</label>
+		</td>
+		<td>
+			<input type="text" name="cusName" value="<?php echo $this->cusPhone; ?>" class="form-control" disabled="true"/>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<label>Number Of Ticket</label>
+		</td>
+		<td>
+			<select class="form-control" name="numOfTicket" >
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>	
+
+		</td>		
+		<td>	
+			<input type="submit" class="btn btn-danger" value="book" />
+		</td>
+	</tr>
+	</form>
+</table>

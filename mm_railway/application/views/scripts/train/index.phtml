@@ -1,0 +1,29 @@
+<?php 
+	//echo "$this->indextrain";
+?>
+<table class="table">
+	<thead>
+		<th>
+			Class
+		</th>
+		<th>
+			Number Of Trolley
+		</th>
+		<th>
+			Train Number
+		</th>		
+		<th>
+			<a href="new" class="btn btn-primary">New Train</a>
+		</th  >
+	</thead>
+	<?php
+		foreach ($this->trainList as $train) {
+			echo "<tr>";		
+			echo "<td>".$train['class']."</td>";		
+			echo "<td>".$train['num_of_trolley']."</td>";			
+			echo "<td>".$train['train_number']."</td>";							
+			echo "<td> <a href='edit?id=".$train['train_id']."' class='btn btn-primary'>"."edit"."</a></td>";
+			echo "</tr>";		
+		}
+	?>
+</table>

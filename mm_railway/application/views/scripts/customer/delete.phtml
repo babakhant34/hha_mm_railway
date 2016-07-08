@@ -1,0 +1,27 @@
+<?php
+$URL="/hha_l5_project/mm_railway/public/customer/";
+
+	$edit = array();
+	foreach ($this->editcustomer as $edit[]) { 
+	}
+	$customer_id = $edit[0];
+	$name = $edit[1];
+	$phone = $edit[2];
+	$email = $edit[3];
+	$address = $edit[5];
+?>
+
+<form method="post">
+<table class="table">
+	<tr>
+		<td><? echo $name ; ?></td>
+		<td><? echo $phone ; ?></td>
+		<td><? echo $email ; ?></td>
+		<td><? echo $address ; ?></td>
+		<td><a href="<?= $URL; ?>delete/customer_id/<?= $customer_id ; ?>/button/yes">
+				<input type='button' value="Yes" class="btn red-btn" /></td>
+			<td><a href="<?= $URL; ?>">
+				<input type='button' value="No" class="btn blue-btn" /></td>
+	</tr>
+</table>
+</form> 

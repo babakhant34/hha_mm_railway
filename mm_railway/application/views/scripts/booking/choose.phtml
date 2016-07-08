@@ -1,0 +1,27 @@
+<table class="table">
+	<thead>
+		<th>
+			Destination
+		</th>
+		<th>
+			Date
+		</th>
+		<th>
+			Time
+		</th>
+		<th>
+			Train
+		</th>
+	</thead>
+	<?php
+		foreach ($this->scheduleList as $schedule) {
+			echo "<tr>";		
+			echo "<td>".$schedule['destination_city']."</td>";		
+			echo "<td>".$schedule['date']."</td>";			
+			echo "<td>".$schedule['time']."</td>";							
+			echo "<td>".$schedule['train']."</td>";				
+			echo "<td> <a href='new?id=".$schedule['schedule_id']."' class='btn btn-primary'>"."Book Ticket"."</a></td>";
+			echo "</tr>";		
+		}
+	?>
+</table>
