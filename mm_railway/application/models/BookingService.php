@@ -65,10 +65,29 @@ public function inquireAllDb(){
 		return $res;
 }
 
-public function updatestatus($booking_id){
-	$updatestatus = "update booking set status='process' where booking_id='$booking_id'";
+public function confirmStatus($booking_id){
+	$updatestatus = "update booking set status='confirm' where booking_id='$booking_id'";
 	mysql_query($updatestatus);
 		
+}
+
+public function rejectStatus($booking_id){
+	$updatestatus = "update booking set status='reject' where booking_id='$booking_id'";
+	mysql_query($updatestatus);
+		
+}
+
+public function inquireConfirm($id){
+	$inquireconfirm = "SELECT * FROM booking as b JOIN train as t JOIN customer as c 
+	JOIN schedule as s WHERE b.customer_id = c.customer_id AND b.schedule_id = s.schedule_id AND 
+	s.train_id = t.train_id AND b.status = 'confirm' AND s.schedule_id = $id ";
+	$ret = mysql_query($inquireconfirm);
+		$numRow = mysql_num_rows($ret);
+		$res = array();
+		for($i = 0; $i<$numRow; $i++){
+			$res[] = mysql_fetch_array($ret);
+		}
+		return $res;
 }
 
 }
