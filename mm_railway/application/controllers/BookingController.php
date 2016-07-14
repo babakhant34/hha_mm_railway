@@ -11,7 +11,6 @@
 ////////////////////////////////////////////////new///////////////////////////////////////////////////////////////////
 	public function newAction()
 		{
-			$_SESSION['cusId'] = 1;
 			if ( $this->getRequest()->isPost() ) {
 				$cusId = $this->getRequest()->getPost ('cusId');
 				$cusName = $this -> getRequest () -> getPost ('cusName');
@@ -21,11 +20,11 @@
 				$scheduleId = $this -> getRequest () -> getPost ('scheduleId');
 				
 				$insert = new Model_BookingService();
-				$insert->insert( $cusId, $numOfTicket, $scheduleId);
+				$insert->insert( $cusId, $numOfTicket, $scheduleId );
 				
 				$this -> redirect('booking/index');
 			} else {
-				$cusId = $_SESSION['cusId'];
+				$cusId = $SESSION['cusId'];
 				// $cusId = "1";
 				$scheduleId = $this->getRequest()->getParam('id');
 				$customerService = new Model_CustomerService();
@@ -48,9 +47,10 @@
 		{
 			$select = new Model_ScheduleService();
 			$arrScheduleList = $select->inquireAll();
-			//Zend_Debug::dump($arrScheduleList);
+			// Zend_Debug::dump($arrScheduleList);
 			$this->view->scheduleList = $arrScheduleList ;
 		}
+////////////////////////////////////////////////generate//////////////////////////////////////////////////////
 		public function generateAction()
 		{
 			$id = $this->getRequest()->getParam('id');
@@ -67,10 +67,19 @@
 			}
 			
 			$bookingService = new Model_BookingService();
-			$bookingService->updatestatus($bookingId);
+			$bookingService->confirmStatus($bookingId);
 			$this -> redirect('booking/index');
 			
 			// $this->view->scheduleList = $arrScheduleList ;
+		}
+////////////////////////////////////////////////reject//////////////////////////////////////////////////////
+		public function rejectAction()
+		{
+			$id = $this->getRequest()->getParam('id');
+			
+			$bookingService = new Model_BookingService();
+			$bookingService->rejectStatus($bookingId);
+			$this -> redirect('booking/index');
 		}
 		
 	}//class
